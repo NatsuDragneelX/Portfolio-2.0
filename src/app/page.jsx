@@ -12,7 +12,7 @@ export default function HomePage() {
     <div className="flex flex-col">
       <Hero />
       <About />
-      <Experience />
+      <Skills />
       <section className="px-4 py-12 sm:px-6">
         <div className="mx-auto max-w-6xl space-y-6">
           <div className="flex items-end justify-between gap-3">
@@ -37,7 +37,7 @@ export default function HomePage() {
           </Button>
         </div>
       </section>
-      <Skills />
+      <Experience />
       <Education />
     </div>
   );
