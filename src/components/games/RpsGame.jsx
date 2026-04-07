@@ -22,6 +22,10 @@ function roundWinner(a, b) {
   return "ai";
 }
 
+function randomOpponentChoice() {
+  return CHOICES[Math.floor(Math.random() * CHOICES.length)].id;
+}
+
 export function RpsGame() {
   const [you, setYou] = React.useState(null);
   const [ai, setAi] = React.useState(null);
@@ -32,7 +36,7 @@ export function RpsGame() {
 
   function play(choice) {
     if (scores.you >= 5 || scores.ai >= 5) return;
-    const pick = CHOICES[Math.floor(Math.random() * 3)].id;
+    const pick = randomOpponentChoice();
     const w = roundWinner(choice, pick);
     setYou(choice);
     setAi(pick);
