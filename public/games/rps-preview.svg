@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" width="400" height="225">
+  <defs>
+    <linearGradient id="rpsBg" x1="0" y1="0" x2="400" y2="225" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2d1f45"/>
+      <stop offset="55%" stop-color="#251833"/>
+      <stop offset="100%" stop-color="#1a1228"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="225" fill="url(#rpsBg)"/>
+  <rect x="40" y="28" width="320" height="140" rx="14" fill="#140d1f" stroke="#6b4d9a" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="200" y="52" text-anchor="middle" fill="#e879f9" font-family="Segoe UI,system-ui,sans-serif" font-size="12" font-weight="700">You vs CPU</text>
+  <g transform="translate(48,64)">
+    <rect x="0" y="0" width="82" height="72" rx="10" fill="#352850" stroke="#8b6fcf" stroke-opacity="0.55" stroke-width="1.5"/>
+    <circle cx="41" cy="32" r="17" fill="#4a5568"/>
+    <text x="41" y="38" text-anchor="middle" fill="#e8ecf4" font-family="Segoe UI,system-ui,sans-serif" font-size="15" font-weight="700">R</text>
+    <text x="41" y="88" text-anchor="middle" fill="#9b8ab8" font-family="Segoe UI,system-ui,sans-serif" font-size="9">Rock</text>
+  </g>
+  <g transform="translate(159,64)">
+    <rect x="0" y="0" width="82" height="72" rx="10" fill="#352850" stroke="#a78bfa" stroke-opacity="0.55" stroke-width="1.5"/>
+    <rect x="25" y="18" width="32" height="28" rx="3" fill="#d4c4f0" stroke="#a78bfa" stroke-width="1"/>
+    <text x="41" y="88" text-anchor="middle" fill="#9b8ab8" font-family="Segoe UI,system-ui,sans-serif" font-size="9">Paper</text>
+  </g>
+  <g transform="translate(270,64)">
+    <rect x="0" y="0" width="82" height="72" rx="10" fill="#352850" stroke="#c084fc" stroke-opacity="0.55" stroke-width="1.5"/>
+    <g stroke="#fcd34d" stroke-width="4" stroke-linecap="round">
+      <line x1="26" y1="20" x2="56" y2="50"/>
+      <line x1="56" y1="20" x2="26" y2="50"/>
+    </g>
+    <text x="41" y="88" text-anchor="middle" fill="#9b8ab8" font-family="Segoe UI,system-ui,sans-serif" font-size="9">Scissors</text>
+  </g>
+  <rect x="88" y="176" width="224" height="36" rx="10" fill="#1f1530" stroke="#5c4a78" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="200" y="200" text-anchor="middle" fill="#f0e8ff" font-family="Segoe UI,system-ui,sans-serif" font-size="13" font-weight="600">Score: You 3 - 2 CPU</text>
+  <text x="392" y="218" text-anchor="end" fill="#6b7c8c" font-family="Segoe UI,system-ui,sans-serif" font-size="11">Rock Paper Scissors</text>
+</svg>

@@ -1,0 +1,37 @@
+export const skillCategories = [
+  {
+    id: "technical",
+    title: "Technical skills",
+    items: [
+      "HTML, CSS, JavaScript",
+      "C++, Java, Python",
+      "Responsive & accessible UI patterns",
+      "Git / version control & collaborative workflows",
+      "REST APIs & integration basics",
+      "Data analysis",
+      "Network configuration",
+      "System diagnostics",
+      "Operating systems (Windows, macOS, Linux)",
+      "Hardware repair & troubleshooting",
+      "Security protocols",
+      "Data recovery",
+      "Apple Certified Repair Agent",
+      "Debugging & root-cause analysis",
+      "Documentation & knowledge transfer",
+    ],
+  },
+  {
+    id: "soft",
+    title: "Soft skills",
+    items: [
+      "Analytical thinking",
+      "Client relationship management",
+      "Team collaboration",
+      "Problem-solving",
+      "Clear written & verbal communication",
+      "Time management & prioritization",
+      "Adaptability in fast-paced retail & tech environments",
+      "Patience when coaching users through technical steps",
+    ],
+  },
+];

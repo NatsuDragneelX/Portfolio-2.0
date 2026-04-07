@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* Default neutral (light) — refined cool slate */
+  html:not([data-palette]),
+  html[data-palette="neutral"] {
+    --background: 220 20% 98%;
+    --foreground: 222 47% 11%;
+    --card: 220 18% 97%;
+    --card-foreground: 222 47% 11%;
+    --primary: 222 47% 20%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 220 14% 93%;
+    --secondary-foreground: 222 40% 18%;
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 217 91% 55%;
+    --accent-foreground: 210 40% 98%;
+    --border: 220 14% 88%;
+    --input: 220 14% 88%;
+    --ring: 217 91% 50%;
+    --neon: 217 91% 55%;
+    --neon-edge: 217 91% 45%;
+  }
+
+  html:not([data-palette]).dark,
+  html[data-palette="neutral"].dark {
+    --background: 222 24% 8%;
+    --foreground: 210 30% 96%;
+    --card: 222 22% 11%;
+    --card-foreground: 210 30% 96%;
+    --primary: 210 30% 96%;
+    --primary-foreground: 222 24% 10%;
+    --secondary: 222 18% 16%;
+    --secondary-foreground: 210 25% 92%;
+    --muted: 222 16% 18%;
+    --muted-foreground: 215 14% 62%;
+    --accent: 217 85% 58%;
+    --accent-foreground: 222 24% 8%;
+    --border: 222 16% 20%;
+    --input: 222 16% 20%;
+    --ring: 217 85% 55%;
+    --neon: 217 85% 58%;
+    --neon-edge: 217 90% 70%;
+  }
+
+  /* Blue + Purple Neon */
+  html[data-palette="blue-purple"] {
+    --background: 240 30% 98%;
+    --foreground: 260 40% 12%;
+    --card: 260 25% 97%;
+    --card-foreground: 260 40% 12%;
+    --primary: 262 83% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 230 40% 94%;
+    --secondary-foreground: 260 35% 18%;
+    --muted: 230 30% 92%;
+    --muted-foreground: 260 12% 38%;
+    --accent: 217 95% 55%;
+    --accent-foreground: 210 40% 98%;
+    --border: 260 20% 88%;
+    --input: 260 20% 88%;
+    --ring: 262 83% 50%;
+    --neon: 270 90% 62%;
+    --neon-edge: 217 95% 52%;
+  }
+
+  html[data-palette="blue-purple"].dark {
+    --background: 260 35% 7%;
+    --foreground: 260 20% 96%;
+    --card: 262 32% 10%;
+    --card-foreground: 260 20% 96%;
+    --primary: 270 85% 68%;
+    --primary-foreground: 260 35% 8%;
+    --secondary: 260 28% 14%;
+    --secondary-foreground: 260 15% 92%;
+    --muted: 260 22% 16%;
+    --muted-foreground: 260 12% 65%;
+    --accent: 217 90% 58%;
+    --accent-foreground: 260 35% 8%;
+    --border: 262 25% 18%;
+    --input: 262 25% 18%;
+    --ring: 270 85% 62%;
+    --neon: 270 90% 65%;
+    --neon-edge: 217 95% 55%;
+  }
+
+  /* Emerald + Slate */
+  html[data-palette="emerald-slate"] {
+    --background: 160 20% 98%;
+    --foreground: 215 28% 12%;
+    --card: 160 18% 97%;
+    --card-foreground: 215 28% 12%;
+    --primary: 160 84% 32%;
+    --primary-foreground: 150 40% 98%;
+    --secondary: 215 18% 92%;
+    --secondary-foreground: 215 28% 16%;
+    --muted: 215 16% 90%;
+    --muted-foreground: 215 12% 38%;
+    --accent: 172 55% 42%;
+    --accent-foreground: 150 40% 98%;
+    --border: 215 16% 86%;
+    --input: 215 16% 86%;
+    --ring: 160 84% 36%;
+    --neon: 160 75% 42%;
+    --neon-edge: 172 55% 38%;
+  }
+
+  html[data-palette="emerald-slate"].dark {
+    --background: 222 28% 7%;
+    --foreground: 160 15% 95%;
+    --card: 222 24% 10%;
+    --card-foreground: 160 15% 95%;
+    --primary: 158 72% 45%;
+    --primary-foreground: 222 28% 8%;
+    --secondary: 215 20% 14%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 215 18% 16%;
+    --muted-foreground: 215 12% 62%;
+    --accent: 172 50% 48%;
+    --accent-foreground: 222 28% 8%;
+    --border: 215 18% 18%;
+    --input: 215 18% 18%;
+    --ring: 158 72% 48%;
+    --neon: 160 70% 48%;
+    --neon-edge: 172 55% 45%;
+  }
+
+  /* Indigo + Cyan */
+  html[data-palette="indigo-cyan"] {
+    --background: 210 40% 98%;
+    --foreground: 230 40% 12%;
+    --card: 210 35% 97%;
+    --card-foreground: 230 40% 12%;
+    --primary: 239 70% 48%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 195 40% 92%;
+    --secondary-foreground: 230 35% 16%;
+    --muted: 210 30% 91%;
+    --muted-foreground: 230 12% 38%;
+    --accent: 188 85% 42%;
+    --accent-foreground: 210 40% 98%;
+    --border: 220 24% 88%;
+    --input: 220 24% 88%;
+    --ring: 239 70% 50%;
+    --neon: 188 90% 48%;
+    --neon-edge: 239 75% 55%;
+  }
+
+  html[data-palette="indigo-cyan"].dark {
+    --background: 230 35% 7%;
+    --foreground: 210 30% 96%;
+    --card: 232 32% 10%;
+    --card-foreground: 210 30% 96%;
+    --primary: 234 82% 62%;
+    --primary-foreground: 230 35% 8%;
+    --secondary: 195 25% 14%;
+    --secondary-foreground: 195 40% 92%;
+    --muted: 230 22% 16%;
+    --muted-foreground: 215 14% 62%;
+    --accent: 188 80% 48%;
+    --accent-foreground: 230 35% 8%;
+    --border: 232 25% 18%;
+    --input: 232 25% 18%;
+    --ring: 234 82% 58%;
+    --neon: 188 85% 52%;
+    --neon-edge: 234 85% 62%;
+  }
+
+  /* Black + Gold */
+  html[data-palette="black-gold"] {
+    --background: 45 20% 97%;
+    --foreground: 30 10% 8%;
+    --card: 45 18% 96%;
+    --card-foreground: 30 10% 8%;
+    --primary: 43 72% 42%;
+    --primary-foreground: 30 10% 8%;
+    --secondary: 30 8% 90%;
+    --secondary-foreground: 30 10% 12%;
+    --muted: 40 12% 90%;
+    --muted-foreground: 30 8% 38%;
+    --accent: 43 65% 48%;
+    --accent-foreground: 30 10% 8%;
+    --border: 40 10% 86%;
+    --input: 40 10% 86%;
+    --ring: 43 72% 42%;
+    --neon: 45 85% 52%;
+    --neon-edge: 43 72% 38%;
+  }
+
+  html[data-palette="black-gold"].dark {
+    --background: 30 8% 5%;
+    --foreground: 45 30% 94%;
+    --card: 30 8% 8%;
+    --card-foreground: 45 25% 94%;
+    --primary: 43 78% 52%;
+    --primary-foreground: 30 8% 8%;
+    --secondary: 30 6% 14%;
+    --secondary-foreground: 45 20% 90%;
+    --muted: 30 6% 16%;
+    --muted-foreground: 40 10% 62%;
+    --accent: 43 70% 48%;
+    --accent-foreground: 30 8% 6%;
+    --border: 30 6% 18%;
+    --input: 30 6% 18%;
+    --ring: 43 78% 52%;
+    --neon: 45 90% 55%;
+    --neon-edge: 43 80% 45%;
+  }
+
+  /* Red + Dark Charcoal */
+  html[data-palette="red-charcoal"] {
+    --background: 0 10% 98%;
+    --foreground: 0 10% 10%;
+    --card: 0 8% 97%;
+    --card-foreground: 0 10% 10%;
+    --primary: 0 72% 48%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 6% 92%;
+    --secondary-foreground: 0 10% 14%;
+    --muted: 0 8% 91%;
+    --muted-foreground: 0 6% 38%;
+    --accent: 350 70% 48%;
+    --accent-foreground: 0 0% 98%;
+    --border: 0 8% 88%;
+    --input: 0 8% 88%;
+    --ring: 0 72% 48%;
+    --neon: 350 75% 52%;
+    --neon-edge: 0 80% 48%;
+  }
+
+  html[data-palette="red-charcoal"].dark {
+    --background: 0 6% 7%;
+    --foreground: 0 10% 95%;
+    --card: 0 5% 10%;
+    --card-foreground: 0 10% 95%;
+    --primary: 0 70% 52%;
+    --primary-foreground: 0 6% 8%;
+    --secondary: 0 4% 16%;
+    --secondary-foreground: 0 8% 90%;
+    --muted: 0 4% 18%;
+    --muted-foreground: 0 6% 60%;
+    --accent: 350 65% 50%;
+    --accent-foreground: 0 6% 8%;
+    --border: 0 5% 20%;
+    --input: 0 5% 20%;
+    --ring: 0 70% 52%;
+    --neon: 350 72% 55%;
+    --neon-edge: 0 75% 50%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply border border-white/10 bg-card/60 shadow-glass backdrop-blur-glass dark:border-white/5;
+    box-shadow:
+      0 8px 32px hsl(var(--foreground) / 0.04),
+      0 0 0 1px hsl(var(--neon-edge) / 0.12);
+  }
+
+  .neon-edge {
+    box-shadow:
+      0 0 0 1px hsl(var(--neon-edge) / 0.35),
+      0 0 28px hsl(var(--neon) / 0.08);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-neon bg-clip-text text-transparent;
+  }
+}
