@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { site } from "@/config/site";
-import { serviceTiers, comparisonFeatures } from "@/config/services";
+import {
+  standardTechServices,
+  developmentServices,
+  serviceDifference,
+} from "@/config/services";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -11,18 +15,13 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Check, Minus, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
   title: "Services & pricing",
-  description: "Website development tiers, pricing ranges, and feature comparison.",
+  description:
+    "Tech repair and support services plus web development packages with clear pricing ranges.",
 };
-
-function cellValue(v) {
-  if (v === true) return <Check className="mx-auto h-4 w-4 text-primary" />;
-  if (v === false) return <Minus className="mx-auto h-4 w-4 text-muted-foreground/50" />;
-  return <span className="text-xs text-muted-foreground">{v}</span>;
-}
 
 export default function ServicesPage() {
   return (
@@ -45,19 +44,52 @@ export default function ServicesPage() {
               Services & pricing
             </p>
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              Web projects, scoped clearly
+              Reliable tech help and modern websites
             </h1>
             <p className="text-muted-foreground leading-relaxed">
-              Whether you need a landing page or a richer marketing site, each
-              tier is defined up front. I bring a technician&apos;s eye for
-              reliability and a developer&apos;s focus on clean, maintainable
-              code.
+              From PC repair and network setup to custom website builds, each
+              service is scoped clearly with transparent pricing so you know what
+              to expect before we start.
             </p>
           </header>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {serviceTiers.map((tier) => (
+        <section className="space-y-5">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Standard tech services
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              Ideal for repairs, setup, and day-to-day support.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {standardTechServices.map((item) => (
+              <Card key={item.id} className="glass-panel bg-card/50">
+                <CardHeader className="space-y-2">
+                  <CardTitle className="text-lg">{item.name}</CardTitle>
+                  <CardDescription>{item.description}</CardDescription>
+                  <p className="text-base font-semibold">{item.priceRange}</p>
+                  <p className="text-xs text-muted-foreground">
+                    Typical turnaround: {item.timeline}
+                  </p>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-5">
+          <div>
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Development services
+            </h2>
+            <p className="mt-2 text-muted-foreground">
+              For modern responsive websites and custom web builds.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {developmentServices.map((tier) => (
             <Card
               key={tier.id}
               className={
@@ -88,15 +120,16 @@ export default function ServicesPage() {
               </CardContent>
             </Card>
           ))}
-        </div>
+          </div>
+        </section>
 
         <section className="space-y-5">
           <div>
             <h2 className="text-2xl font-semibold tracking-tight">
-              Feature comparison
+              Standard vs development
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Compare what is included at each tier.
+              Quick way to compare the two service tracks.
             </p>
           </div>
           <div className="glass-panel overflow-x-auto rounded-xl">
@@ -104,21 +137,27 @@ export default function ServicesPage() {
               <thead>
                 <tr className="border-b border-border/60">
                   <th className="p-4 font-medium">Feature</th>
-                  <th className="p-4 text-center font-medium">Basic</th>
-                  <th className="p-4 text-center font-medium">Standard</th>
-                  <th className="p-4 text-center font-medium">Premium</th>
+                  <th className="p-4 text-center font-medium">
+                    Standard services
+                  </th>
+                  <th className="p-4 text-center font-medium">
+                    Development services
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {comparisonFeatures.map((row) => (
+                {serviceDifference.map((row) => (
                   <tr
                     key={row.feature}
                     className="border-b border-border/40 last:border-0"
                   >
                     <td className="p-4 text-muted-foreground">{row.feature}</td>
-                    <td className="p-4 text-center">{cellValue(row.basic)}</td>
-                    <td className="p-4 text-center">{cellValue(row.standard)}</td>
-                    <td className="p-4 text-center">{cellValue(row.premium)}</td>
+                    <td className="p-4 text-center text-xs text-muted-foreground">
+                      {row.standard}
+                    </td>
+                    <td className="p-4 text-center text-xs text-muted-foreground">
+                      {row.development}
+                    </td>
                   </tr>
                 ))}
               </tbody>
