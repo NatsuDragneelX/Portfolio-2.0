@@ -1,0 +1,45 @@
+# Publishes the Next.js static export (`out/`) to the `gh-pages` branch on every push to `main`.
+#
+# GitHub Pages: Settings → Pages → Deploy from a branch → Branch: gh-pages, folder: / (root).
+# If Pages serves `main` / (root), there is no built `index.html`—visitors effectively see repo content, not the site.
+#
+# Token: Settings → Actions → General → Workflow permissions → enable "Read and write permissions"
+# so GITHUB_TOKEN can push to `gh-pages`.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Push static site to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
