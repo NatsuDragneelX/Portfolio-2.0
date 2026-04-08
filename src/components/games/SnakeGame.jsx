@@ -239,9 +239,18 @@ function init2p() {
 
 export function SnakeGame() {
   const [mode, setMode] = React.useState("solo");
+  const boardRef = React.useRef(null);
   const simRef = React.useRef(initSolo());
   const [, setTick] = React.useState(0);
   const force = React.useCallback(() => setTick((t) => t + 1), []);
+
+  const focusBoard = React.useCallback(() => {
+    const el = boardRef.current;
+    if (!el) return;
+    window.requestAnimationFrame(() => {
+      el.focus({ preventScroll: true });
+    });
+  }, []);
 
   const pDirRef = React.useRef({ x: 1, y: 0 });
   const p1DirRef = React.useRef({ x: 1, y: 0 });
@@ -288,60 +297,93 @@ export function SnakeGame() {
     return () => window.clearInterval(id);
   }, [mode, force]);
 
-  React.useEffect(() => {
-    function onKey(e) {
-      const s = simRef.current;
-      if (!s.alive && e.key !== " ") return;
+  React.useLayoutEffect(() => {
+    focusBoard();
+  }, [mode, focusBoard]);
 
-      if (mode === "solo") {
-        const cur = soloDirRef.current;
-        if (e.key === "ArrowUp" && cur.y === 0)
-          soloDirRef.current = { x: 0, y: -1 };
-        if (e.key === "ArrowDown" && cur.y === 0)
-          soloDirRef.current = { x: 0, y: 1 };
-        if (e.key === "ArrowLeft" && cur.x === 0)
-          soloDirRef.current = { x: -1, y: 0 };
-        if (e.key === "ArrowRight" && cur.x === 0)
-          soloDirRef.current = { x: 1, y: 0 };
-        return;
+  function handleBoardKeyDown(e) {
+    const s = simRef.current;
+    if (!s.alive && e.key !== " ") return;
+
+    if (mode === "solo") {
+      const cur = soloDirRef.current;
+      if (e.key === "ArrowUp" && cur.y === 0) {
+        soloDirRef.current = { x: 0, y: -1 };
+        e.preventDefault();
       }
-
-      if (mode === "vs-ai") {
-        const cur = pDirRef.current;
-        if (e.key === "ArrowUp" && cur.y === 0)
-          pDirRef.current = { x: 0, y: -1 };
-        if (e.key === "ArrowDown" && cur.y === 0)
-          pDirRef.current = { x: 0, y: 1 };
-        if (e.key === "ArrowLeft" && cur.x === 0)
-          pDirRef.current = { x: -1, y: 0 };
-        if (e.key === "ArrowRight" && cur.x === 0)
-          pDirRef.current = { x: 1, y: 0 };
-        return;
+      if (e.key === "ArrowDown" && cur.y === 0) {
+        soloDirRef.current = { x: 0, y: 1 };
+        e.preventDefault();
       }
-
-      const c1 = p1DirRef.current;
-      if (e.key === "ArrowUp" && c1.y === 0) p1DirRef.current = { x: 0, y: -1 };
-      if (e.key === "ArrowDown" && c1.y === 0)
-        p1DirRef.current = { x: 0, y: 1 };
-      if (e.key === "ArrowLeft" && c1.x === 0)
-        p1DirRef.current = { x: -1, y: 0 };
-      if (e.key === "ArrowRight" && c1.x === 0)
-        p1DirRef.current = { x: 1, y: 0 };
-
-      const c2 = p2DirRef.current;
-      const k = e.key;
-      if ((k === "w" || k === "W") && c2.y === 0)
-        p2DirRef.current = { x: 0, y: -1 };
-      if ((k === "s" || k === "S") && c2.y === 0)
-        p2DirRef.current = { x: 0, y: 1 };
-      if ((k === "a" || k === "A") && c2.x === 0)
-        p2DirRef.current = { x: -1, y: 0 };
-      if ((k === "d" || k === "D") && c2.x === 0)
-        p2DirRef.current = { x: 1, y: 0 };
+      if (e.key === "ArrowLeft" && cur.x === 0) {
+        soloDirRef.current = { x: -1, y: 0 };
+        e.preventDefault();
+      }
+      if (e.key === "ArrowRight" && cur.x === 0) {
+        soloDirRef.current = { x: 1, y: 0 };
+        e.preventDefault();
+      }
+      return;
     }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [mode]);
+
+    if (mode === "vs-ai") {
+      const cur = pDirRef.current;
+      if (e.key === "ArrowUp" && cur.y === 0) {
+        pDirRef.current = { x: 0, y: -1 };
+        e.preventDefault();
+      }
+      if (e.key === "ArrowDown" && cur.y === 0) {
+        pDirRef.current = { x: 0, y: 1 };
+        e.preventDefault();
+      }
+      if (e.key === "ArrowLeft" && cur.x === 0) {
+        pDirRef.current = { x: -1, y: 0 };
+        e.preventDefault();
+      }
+      if (e.key === "ArrowRight" && cur.x === 0) {
+        pDirRef.current = { x: 1, y: 0 };
+        e.preventDefault();
+      }
+      return;
+    }
+
+    const c1 = p1DirRef.current;
+    if (e.key === "ArrowUp" && c1.y === 0) {
+      p1DirRef.current = { x: 0, y: -1 };
+      e.preventDefault();
+    }
+    if (e.key === "ArrowDown" && c1.y === 0) {
+      p1DirRef.current = { x: 0, y: 1 };
+      e.preventDefault();
+    }
+    if (e.key === "ArrowLeft" && c1.x === 0) {
+      p1DirRef.current = { x: -1, y: 0 };
+      e.preventDefault();
+    }
+    if (e.key === "ArrowRight" && c1.x === 0) {
+      p1DirRef.current = { x: 1, y: 0 };
+      e.preventDefault();
+    }
+
+    const c2 = p2DirRef.current;
+    const k = e.key;
+    if ((k === "w" || k === "W") && c2.y === 0) {
+      p2DirRef.current = { x: 0, y: -1 };
+      e.preventDefault();
+    }
+    if ((k === "s" || k === "S") && c2.y === 0) {
+      p2DirRef.current = { x: 0, y: 1 };
+      e.preventDefault();
+    }
+    if ((k === "a" || k === "A") && c2.x === 0) {
+      p2DirRef.current = { x: -1, y: 0 };
+      e.preventDefault();
+    }
+    if ((k === "d" || k === "D") && c2.x === 0) {
+      p2DirRef.current = { x: 1, y: 0 };
+      e.preventDefault();
+    }
+  }
 
   function onTouchStart(e) {
     if (mode === "2p") return;
@@ -390,6 +432,7 @@ export function SnakeGame() {
       p2DirRef.current = s.p2Dir;
     }
     force();
+    focusBoard();
   }
 
   const s = simRef.current;
@@ -438,10 +481,10 @@ export function SnakeGame() {
 
   const hint =
     s.mode === "solo"
-      ? "Swipe or arrow keys."
+      ? "Click the grid or hint below, then use arrows (or swipe)."
       : s.mode === "vs-ai"
-        ? "You: green (arrows / swipe). Orange = AI."
-        : "Player 1: arrows · Player 2: W A S D";
+        ? "Click the grid or hint — you: green (arrows / swipe). Orange = AI."
+        : "Click the grid or hint — P1: arrows · P2: W A S D";
 
   const status =
     s.mode === "solo"
@@ -449,7 +492,13 @@ export function SnakeGame() {
       : `${s.alive ? "Battle" : s.msg || "Over"}${s.mode === "vs-ai" ? ` · Apples ${s.score}` : ""}`;
 
   return (
-    <div className="mx-auto max-w-md space-y-4">
+    <div
+      className="mx-auto max-w-md space-y-4"
+      onPointerDownCapture={(e) => {
+        if (e.target.closest("button, a[href], input, textarea, select")) return;
+        focusBoard();
+      }}
+    >
       <Tabs value={mode} onValueChange={setMode} className="w-full">
         <TabsList className="grid h-auto w-full grid-cols-3 gap-1 p-1">
           <TabsTrigger value="solo" className="text-xs sm:text-sm">
@@ -472,16 +521,23 @@ export function SnakeGame() {
         {status}
       </p>
       <div
-        className="touch-pan-y rounded-xl border border-border/50 bg-card/40 p-2 backdrop-blur-md"
+        ref={boardRef}
+        tabIndex={0}
+        className="touch-pan-y rounded-xl border border-border/50 bg-card/40 p-2 outline-none backdrop-blur-md focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
         style={{
           display: "grid",
           gridTemplateColumns: `repeat(${COLS}, minmax(0, 1fr))`,
           gap: 3,
         }}
+        onPointerDownCapture={(e) => {
+          if (e.pointerType === "mouse" && e.button !== 0) return;
+          focusBoard();
+        }}
+        onKeyDown={handleBoardKeyDown}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
         role="application"
-        aria-label="Snake game"
+        aria-label="Snake game board — click here to use keyboard"
       >
         {cells}
       </div>
