@@ -4,6 +4,21 @@
  */
 export const projects = [
   {
+    id: "lidar-radar-speed-lab",
+    title: "LIDAR & Radar Speed Lab",
+    tech: ["React", "FastAPI", "Python", "Three.js", "Vite"],
+    highlights: [
+      "Compares lidar (optical, TOF) vs ~35 GHz–class microwave radar: time of flight, return signal, and Doppler shift",
+      "Separate weather attenuation tables per sensor; detection probability from SNR-style modeling",
+      "Debounced POST API with `/simulate` and `/simulate/curves` for live chart updates",
+      "Optional Three.js PBR car view so matte, paint, and metallic finishes change reflections visibly",
+    ],
+    accent: "from-cyan-500/25 to-amber-500/25",
+    image: "/projects/Lidar-Radar-Speed-Lab.png",
+    github: "https://github.com/NatsuDragneelX",
+    live: "",
+  },
+  {
     id: "elemental-puzzle",
     title: "Elemental Puzzle Game",
     tech: ["C++", "OOP"],

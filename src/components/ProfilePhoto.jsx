@@ -16,7 +16,14 @@ function initialsFromName(name) {
  * Uses a plain <img> (not next/image) so very large phone JPEGs still load reliably.
  * next/image + Sharp can fail or strip huge files; the browser handles them fine.
  */
-export function ProfilePhoto({ src, alt, className, priority = false }) {
+export function ProfilePhoto({
+  src,
+  alt,
+  className,
+  priority = false,
+  /** Bias crop for tall portraits (e.g. full-body photos in a square frame). */
+  objectPosition = "object-[50%_18%]",
+}) {
   const [failed, setFailed] = useState(false);
   const showImage = Boolean(src) && !failed;
 
@@ -33,7 +40,10 @@ export function ProfilePhoto({ src, alt, className, priority = false }) {
           alt={alt}
           width={800}
           height={800}
-          className="absolute inset-0 h-full w-full object-cover"
+          className={cn(
+            "absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[1.04]",
+            objectPosition
+          )}
           loading={priority ? "eager" : "lazy"}
           decoding="async"
           fetchPriority={priority ? "high" : undefined}
