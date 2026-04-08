@@ -8,7 +8,7 @@
     "build": "next build",
     "export": "next build",
     "predeploy": "npm run export",
-    "deploy": "gh-pages -d out",
+    "deploy": "gh-pages -d out --nojekyll --dotfiles",
     "start": "next start",
     "lint": "eslint ."
   },
