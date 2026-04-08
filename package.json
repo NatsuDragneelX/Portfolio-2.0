@@ -2,9 +2,13 @@
   "name": "shivam-patel-portfolio",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://patelshivam.org",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build",
+    "predeploy": "npm run export",
+    "deploy": "gh-pages -d out",
     "start": "next start",
     "lint": "eslint ."
   },
@@ -28,6 +32,7 @@
   "devDependencies": {
     "eslint": "^9.0.0",
     "eslint-config-next": "^16.2.2",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.16"
   }

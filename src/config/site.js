@@ -8,7 +8,7 @@ export const site = {
     "Building intuitive software, solving real-world problems, and crafting smooth digital experiences.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "https://shivampatel.dev",
+    "https://patelshivam.org",
   email: "patelshivam1175@gmail.com", 
   github: "https://github.com/NatsuDragneelX",
   linkedin: "https://www.linkedin.com/in/shivam-patel-0989b2330",
