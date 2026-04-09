@@ -1,0 +1,31 @@
+.display {
+  min-height: 3.5rem;
+  max-height: 7rem;
+  overflow-x: auto;
+  overflow-y: auto;
+  word-break: break-all;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border) / 0.6);
+  background: hsl(var(--muted) / 0.35);
+  padding: 0.75rem 1rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.key {
+  min-height: 2.65rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.keySci {
+  font-size: 0.7rem;
+}

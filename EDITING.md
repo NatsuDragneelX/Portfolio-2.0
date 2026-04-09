@@ -17,6 +17,12 @@ Most copy and lists are **JavaScript config files** under `src/config/`. Change 
 | Project cards (title, tech, highlights, links) | `src/config/projects.js` |
 | Services / pricing tables | `src/config/services.js` |
 | Games hub (titles, descriptions, routes, preview images) | `src/config/games.js` |
+| Tools hub (cards, categories, routes, icons) | `src/config/tools.js` (`toolCategories`, `tools`, `tagline` per card) |
+| Tool page “how to use” blurbs | `src/config/tool-instructions.js` |
+
+## Tools hub
+
+The **`/tools`** grid and each **`/tools/<slug>`** page are documented in **`src/tools/README.md`**. Register new tools in **`src/config/tools.js`**, add instructions in **`src/config/tool-instructions.js`**, and match **`instructionKey`** on the page to the slug.
 
 ## Profile photo
 

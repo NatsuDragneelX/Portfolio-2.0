@@ -1,0 +1,18 @@
+.ring {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+.ringTrack {
+  fill: none;
+  stroke: hsl(var(--muted));
+  stroke-width: 8;
+}
+
+.ringProgress {
+  fill: none;
+  stroke: hsl(var(--primary));
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.35s linear;
+}

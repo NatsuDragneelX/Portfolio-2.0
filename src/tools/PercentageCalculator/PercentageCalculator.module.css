@@ -1,0 +1,12 @@
+.block {
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border) / 0.55);
+  background: hsl(var(--card) / 0.4);
+  padding: 1rem 1.1rem;
+}
+
+.block h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}

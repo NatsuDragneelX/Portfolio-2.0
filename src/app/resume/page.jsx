@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
   title: "Resume",
-  description: `${resumeContent.headline} — ${resumeContent.subhead}. Background, experience, and skills (on this site only; no automatic download).`,
+  description: `${resumeContent.headline} — ${resumeContent.subhead}. Background, experience, and skills.`,
 };
 
 export default function ResumePage() {
@@ -32,9 +32,6 @@ export default function ResumePage() {
               {resumeContent.headline}
             </h1>
             <p className="mt-2 text-lg text-primary">{resumeContent.subhead}</p>
-            <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Displayed on this site only — there is no automatic PDF download.
-            </p>
           </div>
         </div>
 

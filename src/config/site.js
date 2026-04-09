@@ -21,5 +21,6 @@ export const mainNav = [
   { href: "/resume", label: "Resume" },
   { href: "/projects", label: "Projects" },
   { href: "/services", label: "Services" },
+  { href: "/tools", label: "Tools" },
   { href: "/games", label: "Games" },
 ];

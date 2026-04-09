@@ -1,0 +1,179 @@
+"use client";
+
+import * as React from "react";
+import { Input } from "@/components/ui/input";
+import styles from "./PercentageCalculator.module.css";
+
+function num(s) {
+  const v = parseFloat(String(s).replace(",", "."));
+  return Number.isFinite(v) ? v : NaN;
+}
+
+function fmt(v) {
+  if (!Number.isFinite(v)) return "—";
+  return Number.isInteger(v) ? String(v) : v.toFixed(4).replace(/\.?0+$/, "");
+}
+
+export function PercentageCalculator() {
+  const [x1, setX1] = React.useState("25");
+  const [y1, setY1] = React.useState("200");
+  const [x2, setX2] = React.useState("15");
+  const [y2, setY2] = React.useState("80");
+  const [x3, setX3] = React.useState("100");
+  const [p3, setP3] = React.useState("20");
+  const [dir3, setDir3] = React.useState("inc");
+  const [finalV, setFinalV] = React.useState("120");
+  const [pct4, setPct4] = React.useState("20");
+
+  const q1 = y1 ? (num(x1) / num(y1)) * 100 : NaN;
+  const q2 = (num(x2) / 100) * num(y2);
+  const q3 =
+    dir3 === "inc"
+      ? num(x3) * (1 + num(p3) / 100)
+      : num(x3) * (1 - num(p3) / 100);
+  const q4 = num(finalV) / (1 + num(pct4) / 100);
+
+  return (
+    <div className="glass-panel space-y-5 rounded-2xl p-4 sm:p-6">
+      <div className={styles.block}>
+        <h3>X is what % of Y?</h3>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">X</label>
+            <Input
+              inputMode="decimal"
+              value={x1}
+              onChange={(e) => setX1(e.target.value)}
+              className="font-mono"
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">Y</label>
+            <Input
+              inputMode="decimal"
+              value={y1}
+              onChange={(e) => setY1(e.target.value)}
+              className="font-mono"
+            />
+          </div>
+        </div>
+        <p className="mt-3 text-sm">
+          Answer:{" "}
+          <span className="font-mono font-semibold text-primary">{fmt(q1)}%</span>
+        </p>
+      </div>
+
+      <div className={styles.block}>
+        <h3>What is X% of Y?</h3>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">X (%)</label>
+            <Input
+              inputMode="decimal"
+              value={x2}
+              onChange={(e) => setX2(e.target.value)}
+              className="font-mono"
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">Y</label>
+            <Input
+              inputMode="decimal"
+              value={y2}
+              onChange={(e) => setY2(e.target.value)}
+              className="font-mono"
+            />
+          </div>
+        </div>
+        <p className="mt-3 text-sm">
+          Answer:{" "}
+          <span className="font-mono font-semibold text-primary">{fmt(q2)}</span>
+        </p>
+      </div>
+
+      <div className={styles.block}>
+        <h3>X increased or decreased by Y%</h3>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">Original X</label>
+            <Input
+              inputMode="decimal"
+              value={x3}
+              onChange={(e) => setX3(e.target.value)}
+              className="font-mono"
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">Percent Y</label>
+            <Input
+              inputMode="decimal"
+              value={p3}
+              onChange={(e) => setP3(e.target.value)}
+              className="font-mono"
+            />
+          </div>
+        </div>
+        <div className="mt-2 flex flex-wrap gap-2">
+          <button
+            type="button"
+            onClick={() => setDir3("inc")}
+            className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+              dir3 === "inc"
+                ? "bg-primary text-primary-foreground"
+                : "bg-muted text-muted-foreground hover:bg-muted/80"
+            }`}
+          >
+            Increase
+          </button>
+          <button
+            type="button"
+            onClick={() => setDir3("dec")}
+            className={`rounded-md px-3 py-1.5 text-xs font-medium transition-colors ${
+              dir3 === "dec"
+                ? "bg-primary text-primary-foreground"
+                : "bg-muted text-muted-foreground hover:bg-muted/80"
+            }`}
+          >
+            Decrease
+          </button>
+        </div>
+        <p className="mt-3 text-sm">
+          New value:{" "}
+          <span className="font-mono font-semibold text-primary">{fmt(q3)}</span>
+        </p>
+      </div>
+
+      <div className={styles.block}>
+        <h3>Reverse percentage</h3>
+        <p className="mb-3 text-xs text-muted-foreground">
+          If a value grew by Y% to reach <strong>Final</strong>, what was the
+          original? (Original = Final ÷ (1 + Y/100))
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">Final value</label>
+            <Input
+              inputMode="decimal"
+              value={finalV}
+              onChange={(e) => setFinalV(e.target.value)}
+              className="font-mono"
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="text-xs text-muted-foreground">Increase Y (%)</label>
+            <Input
+              inputMode="decimal"
+              value={pct4}
+              onChange={(e) => setPct4(e.target.value)}
+              className="font-mono"
+            />
+          </div>
+        </div>
+        <p className="mt-3 text-sm">
+          Original before +Y%:{" "}
+          <span className="font-mono font-semibold text-primary">{fmt(q4)}</span>
+        </p>
+      </div>
+    </div>
+  );
+}

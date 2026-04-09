@@ -1,0 +1,18 @@
+.swatch {
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  border: 1px solid hsl(var(--border) / 0.7);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.swatch:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 20px hsl(var(--foreground) / 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swatch:hover {
+    transform: none;
+  }
+}

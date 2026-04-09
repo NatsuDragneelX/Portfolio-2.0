@@ -1,0 +1,18 @@
+.steps {
+  margin-top: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border) / 0.5);
+  background: hsl(var(--muted) / 0.25);
+  padding: 0.85rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.steps li {
+  margin-left: 1.1rem;
+  list-style: disc;
+}
+
+.inputMono {
+  font-family: ui-monospace, monospace;
+}

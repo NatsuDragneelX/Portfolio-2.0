@@ -1,0 +1,22 @@
+.track {
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--muted));
+}
+
+.track::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+  box-shadow: 0 0 0 2px hsl(var(--background));
+}
+
+.track::-moz-range-thumb {
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 0;
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+}
