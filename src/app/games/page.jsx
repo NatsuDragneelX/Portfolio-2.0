@@ -31,7 +31,7 @@ function GameSvgPreview({ src, className }) {
 export const metadata = {
   title: "Games",
   description:
-    "Browser games — Tic Tac Toe, Snake, Rock Paper Scissors, Memory Match.",
+    "Browser games — Tic Tac Toe, Snake, Rock Paper Scissors, Memory Match, and Chess.",
 };
 
 export default function GamesHubPage() {

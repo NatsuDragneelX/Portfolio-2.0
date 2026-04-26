@@ -33,13 +33,6 @@ export const toolInstructions = {
       "Start / Pause / Reset; when a phase ends you will hear a short chime.",
     ],
   },
-  "expense-splitter": {
-    summary: "Track who paid and how costs were split, then see fair settle-up amounts.",
-    steps: [
-      "Add people, then add each expense: amount, payer, and who shares it equally.",
-      "Net balance and minimum transfers update automatically; export text for your records.",
-    ],
-  },
   "text-case-converter": {
     summary: "Change capitalization for drafts, titles, or social posts in one place.",
     steps: [

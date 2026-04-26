@@ -1,4 +1,3 @@
-import { getToolsByCategory } from "@/config/tools";
 import { ToolsHubContent } from "./ToolsHubContent";
 
 export const metadata = {
@@ -8,6 +7,5 @@ export const metadata = {
 };
 
 export default function ToolsHubPage() {
-  const sections = getToolsByCategory();
-  return <ToolsHubContent sections={sections} />;
+  return <ToolsHubContent />;
 }

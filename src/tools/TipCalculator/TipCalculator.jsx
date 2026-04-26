@@ -23,6 +23,34 @@ export function TipCalculator() {
 
   return (
     <div className="glass-panel space-y-6 rounded-2xl p-4 sm:p-6">
+      <div className="space-y-1">
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          Tip Workspace
+        </p>
+        <h3 className="text-lg font-semibold text-foreground">Split the bill quickly</h3>
+      </div>
+
+      <div className="grid gap-3 sm:grid-cols-3">
+        <div className="rounded-xl border border-border/60 bg-muted/20 p-4">
+          <p className="text-xs uppercase tracking-wide text-muted-foreground">Tip total</p>
+          <p className="mt-1 font-mono text-xl font-semibold tabular-nums">
+            {validBill ? `$${tipTotal.toFixed(2)}` : "—"}
+          </p>
+        </div>
+        <div className="rounded-xl border border-border/60 bg-muted/20 p-4">
+          <p className="text-xs uppercase tracking-wide text-muted-foreground">Grand total</p>
+          <p className="mt-1 font-mono text-xl font-semibold tabular-nums">
+            {validBill ? `$${grand.toFixed(2)}` : "—"}
+          </p>
+        </div>
+        <div className="rounded-xl border border-primary/25 bg-primary/10 p-4">
+          <p className="text-xs uppercase tracking-wide text-muted-foreground">Per person</p>
+          <p className="mt-1 font-mono text-xl font-semibold tabular-nums text-primary">
+            {validBill ? `$${totalEach.toFixed(2)}` : "—"}
+          </p>
+        </div>
+      </div>
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <label htmlFor="tip-bill" className="text-sm font-medium">
@@ -81,6 +109,19 @@ export function TipCalculator() {
             </Button>
           ))}
         </div>
+        <div className="flex flex-wrap gap-2 pt-1">
+          {[2, 3, 4, 5].map((count) => (
+            <Button
+              key={count}
+              type="button"
+              size="sm"
+              variant={n === count ? "default" : "outline"}
+              onClick={() => setPeople(String(count))}
+            >
+              {count} people
+            </Button>
+          ))}
+        </div>
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2">
@@ -102,8 +143,7 @@ export function TipCalculator() {
         </div>
       </div>
       <p className="text-center text-xs text-muted-foreground">
-        Total tip {validBill ? `$${tipTotal.toFixed(2)}` : "—"} · Grand total{" "}
-        {validBill ? `$${grand.toFixed(2)}` : "—"}
+        Adjust tip % or people count to compare split options instantly.
       </p>
     </div>
   );

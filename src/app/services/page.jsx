@@ -90,36 +90,36 @@ export default function ServicesPage() {
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {developmentServices.map((tier) => (
-            <Card
-              key={tier.id}
-              className={
-                tier.featured
-                  ? "glass-panel neon-edge flex h-full flex-col border-neon-edge/25 bg-card/70"
-                  : "glass-panel flex h-full flex-col bg-card/50"
-              }
-            >
-              <CardHeader>
-                {tier.featured && (
-                  <Badge variant="neon" className="mb-2 w-fit">
-                    Popular
-                  </Badge>
-                )}
-                <CardTitle className="text-xl">{tier.name}</CardTitle>
-                <CardDescription>{tier.description}</CardDescription>
-                <p className="pt-2 text-lg font-semibold">{tier.priceRange}</p>
-                <p className="text-sm text-muted-foreground">
-                  Timeline: {tier.timeline}
-                </p>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  {tier.bullets.map((b) => (
-                    <li key={b}>• {b}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+              <Card
+                key={tier.id}
+                className={
+                  tier.featured
+                    ? "glass-panel neon-edge flex h-full flex-col border-neon-edge/25 bg-card/70"
+                    : "glass-panel flex h-full flex-col bg-card/50"
+                }
+              >
+                <CardHeader>
+                  {tier.featured && (
+                    <Badge variant="neon" className="mb-2 w-fit">
+                      Popular
+                    </Badge>
+                  )}
+                  <CardTitle className="text-xl">{tier.name}</CardTitle>
+                  <CardDescription>{tier.description}</CardDescription>
+                  <p className="pt-2 text-lg font-semibold">{tier.priceRange}</p>
+                  <p className="text-sm text-muted-foreground">
+                    Timeline: {tier.timeline}
+                  </p>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {tier.bullets.map((b) => (
+                      <li key={b}>• {b}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </section>
 

@@ -39,4 +39,13 @@ export const games = [
     accent: "from-cyan-500/30 to-blue-500/25",
     preview: "/games/memory-preview.svg",
   },
+  {
+    slug: "chess",
+    title: "Chess",
+    description:
+      "Play local two-player or vs AI (easy/hard) with legal moves and undo.",
+    href: "/games/chess",
+    accent: "from-slate-500/35 to-zinc-500/30",
+    preview: "/games/chess-preview.svg",
+  },
 ];

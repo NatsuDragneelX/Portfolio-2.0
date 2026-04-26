@@ -82,17 +82,6 @@ export const tools = [
     accent: "from-rose-500/25 to-red-500/15",
   },
   {
-    slug: "expense-splitter",
-    category: "daily",
-    title: "Expense Splitter",
-    tagline:
-      "Split the tab without the passive-aggressive spreadsheet—see who actually owes whom.",
-    description: "Split bills fairly — track who paid, settle who owes whom.",
-    href: "/tools/expense-splitter",
-    icon: "Users",
-    accent: "from-emerald-500/25 to-teal-500/15",
-  },
-  {
     slug: "text-case-converter",
     category: "writing",
     title: "Text Case Converter",

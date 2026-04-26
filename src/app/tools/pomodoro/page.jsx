@@ -3,7 +3,7 @@ import { Pomodoro } from "@/tools/Pomodoro/Pomodoro";
 
 export const metadata = {
   title: "Pomodoro Timer",
-  description: "Focus and break intervals with a progress ring and completion chime.",
+  description: "Focus dashboard with presets, custom timing, and cycle control.",
 };
 
 export default function PomodoroPage() {
@@ -11,8 +11,8 @@ export default function PomodoroPage() {
     <ToolPageChrome
       instructionKey="pomodoro"
       title="Pomodoro"
-      description="Editable focus and break lengths — start, pause, or reset anytime."
-      maxWidthClass="max-w-md"
+      description="Pick a session style, then start focus/break cycles with a cleaner dashboard."
+      maxWidthClass="max-w-5xl"
     >
       <Pomodoro />
     </ToolPageChrome>
