@@ -104,6 +104,28 @@ export const tools = [
     accent: "from-sky-500/25 to-indigo-500/15",
   },
   {
+    slug: "binary-translator",
+    category: "writing",
+    title: "Binary Translator",
+    tagline:
+      "Flip words into 0s and 1s (and back) when you want nerdy text magic fast.",
+    description: "Convert plain text to 8-bit binary and decode binary back to text.",
+    href: "/tools/binary-translator",
+    icon: "Code2",
+    accent: "from-indigo-500/25 to-violet-500/15",
+  },
+  {
+    slug: "morse-code-translator",
+    category: "writing",
+    title: "Morse Code Translator",
+    tagline:
+      "Dot dot dash your message, decode signals, and pretend you are radio ops.",
+    description: "Translate text to Morse code and decode Morse back into readable text.",
+    href: "/tools/morse-code-translator",
+    icon: "Radio",
+    accent: "from-blue-500/25 to-sky-500/15",
+  },
+  {
     slug: "tip-calculator",
     category: "daily",
     title: "Tip Calculator",

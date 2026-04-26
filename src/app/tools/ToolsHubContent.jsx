@@ -18,6 +18,8 @@ import {
   Percent,
   Equal,
   FileText,
+  Code2,
+  Radio,
   ArrowLeft,
   ChevronRight,
   LayoutGrid,
@@ -45,6 +47,8 @@ const iconMap = {
   Percent,
   Equal,
   FileText,
+  Code2,
+  Radio,
 };
 
 function ToolRow({ t }) {

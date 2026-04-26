@@ -47,6 +47,22 @@ export const toolInstructions = {
       "Each button transforms the whole box; use Copy result when done.",
     ],
   },
+  "binary-translator": {
+    summary: "Encode text as 8-bit binary bytes or decode binary back to plain text.",
+    steps: [
+      "For text → binary, enter text and click Convert text to binary.",
+      "For binary → text, enter 8-bit chunks like 01001000 separated by spaces, then click Convert binary to text.",
+      "Use Copy buttons to quickly reuse either result.",
+    ],
+  },
+  "morse-code-translator": {
+    summary: "Convert text into Morse code and decode Morse signals back into words.",
+    steps: [
+      "For text → Morse, type your message and click Convert text to Morse.",
+      "For Morse → text, separate letters by spaces and words with /, then click Convert Morse to text.",
+      "Unknown symbols map to ? so you can spot and fix invalid parts quickly.",
+    ],
+  },
   "tip-calculator": {
     summary: "Split a bill with tip across any number of people.",
     steps: [
