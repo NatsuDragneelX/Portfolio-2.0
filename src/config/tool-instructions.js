@@ -1,6 +1,6 @@
 /**
  * Short “how to use” copy shown inside each tool page (see ToolPageChrome + ToolHelp).
- * Keys must match `slug` in src/config/tools.js and `instructionKey` on each route.
+ * Keys must match each tool route slug and `instructionKey` on each route.
  */
 export const toolInstructions = {
   "password-generator": {
